@@ -1,0 +1,243 @@
+@font-face {
+  font-family: "Open Sans Light";
+  src:url(../fonts/OpenSans-Light.ttf);
+}
+@font-face {
+  font-family: "Open Sans Light Italic";
+  src:url(../fonts/OpenSans-LightItalic.ttf);
+}
+@font-face {
+  font-family: "Open Sans Regular";
+  src:url(../fonts/OpenSans-Regular.ttf);
+}
+@font-face {
+  font-family: "Open Sans Bold";
+  src:url(../fonts/OpenSans-Bold.ttf);
+}
+
+.ui-page-theme-a a:visited, html .ui-bar-a a:visited, html .ui-body-a a:visited, html body .ui-group-theme-a a:visited {
+	color:#000;
+}
+
+.ui-content {
+	padding: 0;
+}
+.ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper {
+	background-image:url(../img/background.jpg);
+	background-size:cover;
+	background-attachment:fixed;
+}
+.ui-bar-a, .ui-page-theme-a .ui-bar-inherit, html .ui-bar-a .ui-bar-inherit, html .ui-body-a .ui-bar-inherit, html body .ui-group-theme-a .ui-bar-inherit {
+	border:none;
+}
+
+header {
+	color:#fff;
+	padding:15px;
+	background-size:cover;
+}
+
+.mainmenu {
+	margin:0;
+	padding:0;
+}
+.mainmenu li {
+	list-style:none;
+}
+.mainmenu li a {
+	display:block;
+	padding:10px;
+	color:#000;
+	text-decoration:none;
+	font-family: "Open Sans Light";
+}
+
+header {
+	font-family: "Open Sans Regular";
+	padding:5px;
+}
+
+header h1 {
+	color:#fff;
+	text-shadow:none;
+	margin:0;
+	font-size:110px;
+	font-weight:normal;
+	line-height:100px;
+}
+header h2 {
+	margin:0;
+	color:#fff;
+	text-shadow:none;
+	text-align:left;
+	padding-left:13px;
+}
+.scorecontainer {
+	width:275px;
+	padding:10px 0;
+}
+.livelink {
+	display:none;
+	text-decoration:none;
+}
+span.live {
+	padding:5px 14px;
+	background:#f00;
+	color:#fff;
+	text-align:center;
+}
+#commentaryarea {
+	background-image:url(../img/header.png);
+	background-size:cover;
+	color:#fff;
+	min-height:75px;
+	font-size: 24px;
+	text-align: center;
+	font-family: "Open Sans Regular";
+}
+#commentaryarea p {
+	margin:0;
+}
+.homecontainer {
+	padding:10px;
+	font-size:20px;
+	font-family: "Open Sans Light";
+}
+.homecontainer h1 {
+	margin-top:0;
+	margin-bottom:10px;
+	font-size:35px;
+	font-family:sans-serif;
+}
+
+.homecontainer table {
+	font-family: "Open Sans Bold";
+	font-weight:bold;
+	text-transform:uppercase;
+}
+
+.ui-li-count {
+	font-size:18px;
+}
+.ui-content th {
+	text-align:left;
+	text-transform:uppercase;
+	font-size:19px;
+	font-family: "Open Sans Regular";
+}
+.scorecard_table {
+	text-transform:uppercase;
+	font-family: "Open Sans Light";
+	font-size: 18px;
+}
+.ui-content h1 {
+	margin-bottom:3px;
+	margin-top: 5px;
+}
+#scorecard .ui-content, #teams .ui-content {
+	padding:5px;
+}
+.ui-listview > li h1, .ui-listview > li h2, .ui-listview > li h3, .ui-listview > li h4, .ui-listview > li h5, .ui-listview > li h6 {
+	white-space:normal;
+}
+#teams p {
+	font-family: "Open Sans Light";
+	text-transform:uppercase;
+	font-size:18px;
+	margin-left:15px;
+}
+header.stc {
+	background-image:url(../img/stc_bg.png);
+}
+header.rc {
+	background-image:url(../img/rc_bg.png);
+}
+
+.preloader {
+	position: absolute;
+  	left: 45%;
+  	margin-top: 45px;
+}
+
+#about {
+	font-family: "Open Sans Light";
+	background-image:url(../img/header.png);
+	background-size:cover;
+	color:#fff;
+	text-shadow:none;
+}
+
+#photos ul {
+	margin:0;
+	padding:0;
+}
+
+#photos ul li {
+	list-style:none;
+	margin-bottom:15px;
+}
+
+.photofeedimg {
+	background-color:#8C8C8C;
+	background-size:cover;
+	background-position:center;
+	width:100%;
+	height:150px;
+	border-radius:4px;
+}
+
+.refreshmessage {
+	text-align: center;
+    text-transform: uppercase;
+    font-family: 'Open sans';
+    color: #A4A4A4;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 12px;
+}
+
+@media screen and (max-width: 800px) {
+	
+#bat_crest {
+	height:50px;
+}
+
+header h1 {
+	line-height:62px;
+	font-size:70px;
+}
+
+header h2 {
+	padding-left: 60px;
+    font-size: 16px !important;
+}
+	
+.scorecontainer {
+	padding:0;
+}
+
+#commentaryarea {
+	min-height: 50px;
+}
+
+#commentaryarea p {
+	font-size: 17px;
+}
+
+#commentaryarea table {
+	height:50px;
+}
+
+.ui-content h1 {
+	font-size: 25px;
+}
+
+.homecontainer {
+	font-size:14px;
+}
+
+.homecontainer strong {
+	font-size:15px;
+}
+
+}	

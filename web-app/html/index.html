@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+    <meta name="author" content="Telge Suresh Michael Peiris">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="css/jquery.fancybox.css" />
+    <link rel="stylesheet" href="css/xpull.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Royal Thomian Live</title>
+</head>
+
+<body onLoad="init();">
+
+    <!-- Sliding drawer panel / Main Menu -->
+    <div class="ui-panel ui-panel-position-left ui-panel-display-push ui-body-a ui-panel-animate ui-panel-closed" data-role="panel" id="mypanel" data-display="overlay" data-position-fixed="true">
+        <ul class="mainmenu">
+            <li><a href="#home">Home</a>
+            </li>
+            <li><a href="#teams">Teams</a>
+            </li>
+            <li><a href="#scorecard">Full Scorecard</a>
+            </li>
+            <li><a href="#commentary">Live Commentary</a>
+            </li>
+            <li><a href="#photos">Photo Feed</a>
+            </li>
+            <li><a href="#live">Live Stream</a>
+            </li>
+            <li><a href="#twitter">Twitter Feeds</a>
+            </li>
+            <li><a href="#about">About</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Home Page for News and Real Time Text -->
+    <div data-role="page" id="home">
+    	  
+    	<!--
+        <header data-role="header" data-position="fixed" class="stc">
+            <table width="100%">
+                <tr>
+                    <td align="left" valign="top">
+                        <a id="togglepanel" href="#mypanel" onclick="javascript:void();">
+                            <img height="43px" src="img/menu.png" />
+                        </a>
+                    </td>
+                    <td align="right" style="color:#fff;"><img height="75px" src="img/crest.png" class="bat_crest" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" colspan="2">
+                        <div class="scorecontainer">
+                            <h1><span class="bat_score">-</span>/<span class="bat_wickets">-</span></h1>
+                            <h2><span class="match">n/a</span></h2>
+                            <h2><span class="overs">0.0</span> Overs | RR: <span class="run_rate">0.0</span></h2>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left"><a href="#live" class="livelink"><span class="live">LIVE</span></a>
+                    </td>
+                    <td align="right">
+                        <h2 style="display: inline-block;font-size: 40px;"><span class="bowl_score">00</span>/<span class="bowl_wickets">0</span></h2><img src="img/royal.png" height="38px" class="bowl_crest" />
+                    </td>
+                </tr>
+            </table>
+        </header>
+        -->
+        
+        <div data-role="content" class="ui-content">
+        	<div id="commentaryarea">
+            	<table width="100%" height="75px">
+                	<tr>
+                    	<td><p>137th Battle of the Blues Cricket encounter</p></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="homecontainer">
+				<h1>BATTING</h1>
+                <ul data-role="listview" data-inset="true">
+                	<li><span id="batsman1_name">Batsman 01</span><span class="ui-li-count ui-body-inherit"><span id="batsman1_score">00</span></span></li>
+                    <li><span id="batsman2_name">Batsman 02</span><span class="ui-li-count ui-body-inherit"><span id="batsman2_score">00</span></span></li>
+                </ul>
+                
+                <h1>BOWLING</h1>
+                <ul data-role="listview" data-inset="true">
+                	<li><span id="bowler1_name">Bowler 01</span><span class="ui-li-count ui-body-inherit"><strong>O: <span id="b1_0">0</span>, M: <span id="b1_M">0</span>, R: <span id="b1_R">0</span>, W: <span id="b1_W">0</span></strong></span></li></li>
+                    <li><span id="bowler2_name">Bowler 02</span><span class="ui-li-count ui-body-inherit"><strong>O: <span id="b2_0">0</span>, M: <span id="b2_M">0</span>, R: <span id="b2_R">0</span>, W: <span id="b2_W">0</span></strong></span></li></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+	<div data-role="page" id="scorecard">  
+    	<div data-role="content" class="ui-content">
+        		<div class="refreshmessage">Pull down to refresh scorecard</div> 
+        		<div data-role="navbar">
+                    <ul>
+                       <li><a href="#" data-ajax="false" class="scorecard_link" id="1">1 Inn</a></li>
+                       <li><a href="#" data-ajax="false" class="scorecard_link" id="2">2 Inn</a></li>
+                       <li><a href="#" data-ajax="false" class="scorecard_link" id="3">3 Inn</a></li>
+                       <li><a href="#" data-ajax="false" class="scorecard_link" id="4">4 Inn</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="#" data-ajax="false" class="scorecard_link" id="odi1">OD 1</a></li>
+                        <li><a href="#" data-ajax="false" class="scorecard_link" id="odi2">OD 2</a></li>
+                    </ul>
+                </div>
+        
+                <div id="ui-content">
+                	<div class="homecontainer">
+                    
+                        <div style="min-height:150px;">
+                            <h1>BATTING<font color="#008CFF">.</font></h1>
+                            <span class="preloader" id="scorecard_batting_loader"><center><img src="img/spinner.GIF" width="35"/></center></span>
+                            <table width="100%" class="scorecard_batting_table"></table>
+                        </div>
+                        
+                        <div style="min-height:150px;">
+                            <h1>BOWLING<font color="#008CFF">.</font></h1>
+                            <span class="preloader" id="scorecard_bowling_loader"><center><img src="img/spinner.GIF" width="35"/></center></span>
+                            <table width="100%" class="scorecard_bowling_table"></table>
+                        </div>
+                    
+                    </div>
+                </div>
+        </div>
+    </div>
+    
+    <div data-role="page" id="photos">
+    	<div data-role="content" class="ui-content">
+        	<div class="refreshmessage">Pull down to refresh photo gallery</div>
+        	<div class="homecontainer">
+                <h1 style="margin-top: 0;">PHOTO FEED</h1>
+                <span class="preloader" id="photofeed_loader"><center><img src="img/spinner.GIF" width="35"/></center></span>
+                <ul></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div data-role="page" id="teams">        
+    	<div data-role="content">
+        	<div data-role="tabs">
+                <div data-role="navbar">
+                        <ul>
+                        	<li><a href="#stc" data-ajax="false">S. Thomas'</a></li>
+                            <li><a href="#royal" data-ajax="false">Royal</a></li>
+                        </ul>
+                 </div>
+                 <div id="stc" class="ui-body-d ui-content" style="overflow:scroll;"></div>
+                 <div id="royal" class="ui-body-d ui-content" style="overflow:scroll;"></div>
+            </div>
+            <span class="preloader" id="teams_loader"><center><img src="img/spinner.GIF" width="35"/></center></span>
+        </div>
+    </div>
+    
+    <div data-role="page" id="commentary">
+    	<div data-role="content" class="ui-content">
+        	<div class="homecontainer">
+                <h1 style="margin-top: 10px;">COMMENTARY</h1>
+                <span class="preloader" id="commentary_loader"><center><img src="img/spinner.GIF" width="35"/></center></span>
+                <ul data-role="listview" data-inset="true"></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div data-role="page" id="twitter">
+    	<div data-role="content" class="ui-content">
+        	<div class="homecontainer" style="text-align:center;">
+            	<h1>#ROYTHO TWEETS</h1>
+                <span class="preloader" id="twitterloader"><center><img src="img/spinner.GIF" width="35"/></center></span>
+                <center><iframe id="tweetframe" frameborder="0" width="100%" height="375px" scrolling="yes"></iframe></center>
+            </div>
+        </div>
+    </div>
+    
+    <div data-role="page" id="live">
+    	<div data-role="content" class="ui-content">
+        	<div class="homecontainer" style="text-align:center;">
+            	 <iframe id="streamframe" style="border:none;width:100%;height:300px;background:#000;"></iframe>
+            </div>
+        </div>
+    </div>
+    
+    <div data-role="page" id="about">
+    	<div data-role="content" class="ui-content">
+            <div id="titles">
+                <div id="titlecontent" align="center">
+                    <p><b>Developed by,</b>
+                    <br/>Suresh Michael Peiris.
+                    <br/><br/><b>Concept design &amp; score updates,</b>
+                    <br/>K. C. Bhareti
+                    <br/>D. D. U. De Silva
+                    <br/><br/><b>Commentary,</b>
+                    <br/>STC Media Unit
+                    <br/><br/><b>Compiling for iOS,</b>
+                    <br/>J. C. Gurusinghe
+                    <br/><br/>Sponsored by,
+                    <br/><b>ASUS Sri Lanka.</b>
+                    <br/><br/><img src="img/credits.png" width="150px"/><br/>Powered by the ICT Society of S. Thomas' College Mount Lavinia.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="cordova.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+	<script src="js/socket.io-1.4.3.js"></script>
+    <script src="js/jquery.fancybox.pack.js"></script>
+    <script src="js/xpull.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+
+</html>
